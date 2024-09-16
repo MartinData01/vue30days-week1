@@ -50,14 +50,14 @@ const drinkData = ref([
     stock: 20
   }
 ])
-const addItem = (num) => {
+const addItem = (item) => {
   // console.log(num)
-  drinkData.value[num]['stock'] += 1
+  item.stock += 1
   // console.log(drinkData.value[num]['stock'])
 }
-const delItem = (num) => {
+const delItem = (item) => {
   // console.log(num)
-  drinkData.value[num]['stock'] -= 1
+  item.stock -= 1
   // console.log(drinkData.value[num]['stock'])
 }
 </script>
@@ -81,8 +81,8 @@ const delItem = (num) => {
           </td>
           <td>{{ item.price }}</td>
           <td>
-            <button @click="delItem(key)">-</button> {{ item.stock }}
-            <button v-on:click="addItem(key)">+</button>
+            <button @click="delItem(item)">-</button> {{ item.stock }}
+            <button v-on:click="addItem(item)">+</button>
           </td>
         </tr>
       </tbody>
